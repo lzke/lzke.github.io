@@ -220,16 +220,13 @@ var ParticlePool = (function () {
         particles.draw(context, image);
     }
 
-    // handle (re-)sizing of the canvas
-    function onResize() {
-        canvas.width = canvas.clientWidth;
-        canvas.height = canvas.clientHeight;
-    }
-    window.onresize = onResize;
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
 
     // delay rendering bootstrap
     setTimeout(function () {
-        onResize();
+        // onResize();
         render();
     }, 10);
+
 })(document.getElementById('pinkboard'));
