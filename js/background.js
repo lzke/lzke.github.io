@@ -49,11 +49,11 @@ window.addEventListener("load", function() {
 		},
 		bokeh:
 		{
-			count: 25,
+			count: 5,
 			size:
 			{
-				min: 0.01,
-				max: 0.1
+				min: 0.1,
+				max: 0.4
 			},
 			alpha:
 			{
@@ -177,7 +177,8 @@ window.addEventListener("load", function() {
 		new ColorPoint(1, 1, new Color(304, 47, 27))
 	];
 
-	function BokehCircle(x, y, size, alpha) {
+	function BokehCircle(x, y, size, alpha, id) {
+		this.id = id
 		this.oldX = x;
 		this.oldY = y;
 		this.oldSize = size;
@@ -272,7 +273,7 @@ window.addEventListener("load", function() {
 
 		for(i = 0; i < options.bokeh.count; i++) {
 			circles.push(new BokehCircle(Math.random(), Math.random(),
-						rand(options.bokeh.size), rand(options.bokeh.alpha)));
+						rand(options.bokeh.size), rand(options.bokeh.alpha), "img" + (i + 1)));
 			circles[i].newAlpha = rand(options.bokeh.alpha);
 			circles[i].newSize = rand(options.bokeh.size);
 			circles[i].speed = rand(options.speed);
@@ -333,8 +334,8 @@ window.addEventListener("load", function() {
 			var grad = gradientBuffer.createRadialGradient(x, y,
 					options.gradient.smallRadius, x, y,
 					options.gradient.resolution);
-			grad.addColorStop(0, 'hsla(' + point.color().str() + ', 255)');
-			grad.addColorStop(1, 'hsla(' + point.color().str() + ', 0)');
+			grad.addColorStop(0, 'rgba(250, 232, 232, 255)');
+			grad.addColorStop(1, 'rgba(250, 232, 232, 0)');
 
 			gradientBuffer.fillStyle = grad;
 			gradientBuffer.fillRect(0, 0,
@@ -354,7 +355,8 @@ window.addEventListener("load", function() {
 			var size = circle.size() * scale;
 
 			ctx.globalAlpha = circle.alpha();
-			ctx.drawImage(circleBuffer.canvas,
+			var bgImg = document.getElementById(circle.id)
+			ctx.drawImage(bgImg,
 					circle.x() * w - size / 2, circle.y() * h - size / 2,
 					size, size);
 
@@ -377,7 +379,7 @@ window.addEventListener("load", function() {
 			ctx.fillText(Math.round(fps) + " fps", 10, 20);
 		}
 
-		//done rendering, wait for frame
+		//done rendering, wait for frame  
 		window.requestAnimFrame(render);
 	}
 
