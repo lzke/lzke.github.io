@@ -100,7 +100,7 @@ html {
     border-radius: 50%;
     filter: blur(1px);
     max-width: 120px;
-    margin: 5px;
+    margin: 6px;
     cursor: pointer;
     transition: all 0.25s ease-out;
 }
