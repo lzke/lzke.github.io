@@ -39,10 +39,10 @@ html {
     transform: translate(-50%, -80%);
     color: #ea80b0;
     font-size: 20px;
-    margin-left: 10px;
     font-family: CUSTOM;
     font-size: 3rem;
     transition:width 2s, height 2s, background-color 2s, transform 2s;
+    min-width: 270px;
 }
 
 #yangqilin {
@@ -59,22 +59,22 @@ html {
 
 #tree {
     position: fixed;
-    top: 46%;
-    left: 39%;
-    transform: translate(-50%, -80%);
+    top: 72%;
+    right: 50%;
+    transform: translate(-140px, 0%);
     color: #ea80b0;
     font-size: 20px;
     font-family: CUSTOM;
     font-size: 3rem;
-    width: 50px;
+    width: 96px;
     transition:width 2s, height 2s, background-color 2s, transform 2s;
 }
 
 #pink {
     position: fixed;
-    top: 82%;
-    left: 70%;
-    transform: translate(-50%, -80%);
+    top: 65%;
+    left: 50%;
+    transform: translate(135px, 0%);
     color: #ea80b0;
     font-size: 20px;
     font-family: CUSTOM;
@@ -83,40 +83,30 @@ html {
     transition:width 2s, height 2s, background-color 2s, transform 2s;
 }
 
+.popo-list {
+    position: fixed;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    min-width: 620px;
+    align-items: center;
+    justify-content: center;
+}
+
 .popo {
-    position: absolute;  
-    z-index: -100;
+    opacity: 0.5;
+    position: relative;  
+    /* z-index: -100; */
     border-radius: 50%;
     filter: blur(1px);
     max-width: 120px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
 }
 
-#img1 {
-    top: 60%;
-    left: 7%;
-}
-
-#img2 {
-    top: 15%;
-    left: 13%;
-    max-width: 140px;
-}
-
-#img3 {
-    top: 9%;
-    left: 57%;
-    max-width: 240px;
-    opacity: 0.7;
-}
-
-#img4 {
-    top: 57%;
-    left: 79%;
-    max-width: 140px;
-}
-
-#img5 {
-    top: 76%;
-    left: 30%;
-    max-width: 140px;
+.popo:hover {
+    opacity: 1;
+    margin: 0px;
+    max-width: 130px;
 }

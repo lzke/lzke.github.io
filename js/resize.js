@@ -1,4 +1,4 @@
-var isFading = { name: false, happy: false}
+var isFading = { name: false, happy: false, pink: false, tree: false}
 function fadeIn(ele, speed, key) {
     if (!isFading[key]) {
         isFading[key] = true
@@ -31,6 +31,12 @@ function onResize() {
     happy.style.opacity = 0
     fadeIn(happy, 3000, "happy")
 
+    let pink = document.getElementById('pink')
+    pink.style.opacity = 0
+    fadeIn(pink, 3000, "pink")
 
+    let tree = document.getElementById('tree')
+    tree.style.opacity = 0
+    fadeIn(tree, 3000, "tree")
 }
 window.onresize = onResize;
